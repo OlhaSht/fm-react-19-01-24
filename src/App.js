@@ -2,13 +2,14 @@
 import "./App.css";
 import React from "react";
 import CiaoSection from "./components/CiaoSection";
+import UserList from './components/UserList/index';
 
 function App (props) {
    return <>
-  <CiaoSection/>
+  <UserList/>
   </>
   }
-  export default App;
+  export default App;      
 
 
 

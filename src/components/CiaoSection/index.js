@@ -7,7 +7,7 @@ const userDB = [
     { id: 1, fname: "Boi" },
     { id: 4, fname: "Roi" },
     { id: 5, fname: "Voi" },
-  ]
+  ];
 class CiaoSection extends Component {
     constructor(props) {
         super(props);
