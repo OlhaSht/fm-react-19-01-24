@@ -1,12 +1,11 @@
 // import logo from './logo.svg';
 import "./App.css";
 import React from "react";
-import CiaoSection from "./components/CiaoSection";
-import UserList from './components/UserList/index';
+import StopWatch from './components/StopWatch';
 
 function App (props) {
    return <>
-  <UserList/>
+  <StopWatch />
   </>
   }
   export default App;      
