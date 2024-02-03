@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import styles from "./StopWatch.module.css/";
+import styles from "./StopWatch.module.css";
+
 class StopWatch extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +16,8 @@ class StopWatch extends Component {
     }
     start = ()=>{
         this.stop();
-        this.idInterval = setInterval(this.tick, 1000)
+        // this.idInterval = setInterval(this.tick, 1000)
+        this.idInterval = setTimeout(this.tick, 1000)
     };
 
     reset = ()=>{
@@ -24,12 +26,17 @@ class StopWatch extends Component {
     };
 
     stop = ()=>{
-        clearInterval(this.idInterval);
+        // clearInterval(this.idInterval);
+        clearTimeout(this.idInterval);
         this.idInterval = null;
     };
 
     componentDidMount (){
         this.start();
+    }
+    componentDidUpdate (){
+        this.start();
+
     }
     componentWillUnmount(){
         this.stop();
@@ -40,7 +47,7 @@ class StopWatch extends Component {
         return (
             <artricle className={styles.container}>
                 <h2>{time.toLocaleTimeString('it-IT')}</h2>
-                <button onClick={this.start}>start</button>
+                <button onClick={this.start} className={styles.button}>start</button>
                 <button onClick={this.reset}>reset</button>
                 <button onClick={this.stop}>stop</button>
             </artricle>
