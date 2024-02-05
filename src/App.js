@@ -1,11 +1,11 @@
 // import logo from './logo.svg';
 import "./App.css";
 import React from "react";
-import StopWatch from './components/StopWatch';
+import Counter from './components/Сounter'
 
 function App (props) {
    return <>
-  <StopWatch />
+  <Counter />
   </>
   }
   export default App;      
