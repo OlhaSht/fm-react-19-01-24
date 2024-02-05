@@ -1,11 +1,13 @@
 // import logo from './logo.svg';
 import "./App.css";
 import React from "react";
-import Counter from './components/Сounter'
+import CounterSection from './components/counter/CounterSection'
+import CounterForm from './components/counter/CounterForm'
 
-function App (props) {
+function App (props){
    return <>
-  <Counter />
+  <CounterSection />
+  <CounterForm />
   </>
   }
   export default App;      
