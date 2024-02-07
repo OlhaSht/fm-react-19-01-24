@@ -1,13 +1,13 @@
 // import logo from './logo.svg';
 import "./App.css";
 import React from "react";
+import CalendarSection from './components/calendar/CalendarSection';
 import CounterSection from './components/counter/CounterSection'
 import CounterForm from './components/counter/CounterForm'
 
 function App (props){
    return <>
-  <CounterSection />
-  <CounterForm />
+  <CalendarSection />
   </>
   }
   export default App;      
