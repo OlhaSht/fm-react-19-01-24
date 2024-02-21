@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import styles from "./../Counter.module.scss"
 
 class CounterSection extends Component {
     constructor(props) {
@@ -8,21 +8,27 @@ class CounterSection extends Component {
             counter:0
         };
     }
-    handlerAdding =()=>{
-        this.setState((state, props)=>({
-            counter:state.counter+props.state,  
-        } ) )
+    handlerPlus =()=>{
+        this.setState((state, props) => ({
+            counter: state.counter + props.step
+          }));
+       }
+       handlerMinus =()=>{
+        this.setState((state, props) => ({
+            counter: state.counter - props.step
+          }));
        }
 
     render() {
         const {counter} = this.state;
-        const {step} = this.props;
         return (
-            <div>
-                <h2>{counter}</h2>
-                <h2>{step}</h2>
-                <button onClick={this.handlerAdding}>Add</button> 
-            </div>
+            <section className={styles.container}>
+                <h2 className={styles.counter}>{counter}</h2>
+                <button className={styles.button}
+                 onClick={this.handlerPlus}>+</button> 
+                 <button className={styles.button}
+                 onClick={this.handlerMinus}>-</button> 
+            </section>
         );
     }
 }

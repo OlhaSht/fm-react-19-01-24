@@ -1,16 +1,67 @@
 // import logo from './logo.svg';
-import "./App.css";
 import React from "react";
-import CalendarSection from './components/calendar/CalendarSection';
-import CounterSection from './components/counter/CounterSection'
-import CounterForm from './components/counter/CounterForm'
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import "./App.css";
+import WindowSizes from './components/WindowSizes/index';
+import PageNotFound from './components/page/NotFound';
+// import CalendarSection from './components/calendar/CalendarSection';
+import PageCounter from './components/page/PageCounter';
 
-function App (props){
-   return <>
-  <CalendarSection />
-  </>
-  }
-  export default App;      
+
+
+const App = () =>{
+  return(
+    <>
+      <BrowserRouter>
+      <nav>
+        <ul>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/About'>About</Link>
+          </li>
+          <li>
+            <Link to='/Contact'>Contact</Link>
+          </li>
+          <li>
+            <Link to='/winsize'>WindowSizes</Link>
+          </li>
+          <li>
+            <Link to='/PageCounter'>CounterSection</Link>
+          </li>
+        </ul>
+      </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/winsize" element={<WindowSizes />} /> 
+          <Route path="/*" element={<PageNotFound/>} />
+          <Route path="/PageCounter" element={<PageCounter/>} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+};
+
+const Home = ()=><section>Home</section>;
+const About = ()=><section>About</section>;
+const Contact = ()=><section>Contact</section>;
+// const PageCounter = ()=><section>CounterSection</section>;
+
+export default App;      
+
+
+
+
+
+// function App (props){
+//    return <>
+//   <nnnn />
+//   </>
+//   }
+//   export default App;      
 
 
 

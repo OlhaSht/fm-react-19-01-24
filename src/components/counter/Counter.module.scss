@@ -1,0 +1,30 @@
+%general{
+    width: 700px;
+    height: 200px;
+    text-align: center;
+    margin: auto; 
+}
+
+.container{
+    @extend %general;
+}  
+.counter{
+    @extend %general;
+    font-size: 100px;
+    background-color:rgb(214, 151, 190);
+}
+.button{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(129, 151, 218);
+}
+.formContainer{
+    @extend %general;
+    background-color:rgb(236, 194, 224);
+}
+.input{
+    width: 150px;
+    height: 50px;
+    margin-top: 70px;
+}

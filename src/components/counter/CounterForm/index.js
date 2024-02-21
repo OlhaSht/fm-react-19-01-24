@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import CounterSection from '../CounterSection';
+import styles from "./../Counter.module.scss"
+
 
 class CounterForm extends Component {
     constructor(props) {
@@ -11,19 +13,20 @@ class CounterForm extends Component {
         this.setState({[name]:Number(value)})
     }
     render() {
-        const {counter} = this.state;
-        const {step} = this.props;
+        const {step} = this.state;
         return (
-            <form>
+            <section className={styles.formContainer}>
                 <input
-                type='number' placeholder='step'
+                className={styles.input}
+                type='namber'
                 name='step'
                 value ={step} 
-                onClick={this.handierInput} 
-                min='1' max='1000000' step='1'
+                onChange={this.handierInput} 
+                min='1' max='10' step='1'
                 />
-                <CounterSection counter={counter}/>
-            </form>
+                <CounterSection step={step}/>
+             </section>
+            
         );
     }
 }
