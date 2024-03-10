@@ -1,56 +1,74 @@
-   // import logo from './logo.svg';
-import React from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import "./App.css";
-import WindowSizes from './components/WindowSizes/index';
-import PageNotFound from './components/page/NotFound';
+    // import logo from './logo.svg';
+import React, { useState } from "react";
+import FunkStopWatch from "./components/FunkStopWatch";
+// import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+// import WindowSizes from './components/WindowSizes/index';
+// import PageNotFound from './components/page/NotFound';
 // import CalendarSection from './components/calendar/CalendarSection';
-import PageCounter from './components/page/PageCounter';
+// import PageCounter from './components/page/PageCounter';
+import "./App.css";
 
 
-
-const App = () =>{
-  return(
+const App = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const handlerVisible = () =>{
+    setIsVisible(!isVisible);
+  }
+  return (
     <>
-      <BrowserRouter>
-      <nav>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/About'>About</Link>
-          </li>
-          <li>
-            <Link to='/Contact'>Contact</Link>
-          </li>
-          <li>
-            <Link to='/winsize'>WindowSizes</Link>
-          </li>
-          <li>
-            <Link to='/PageCounter'>CounterSection</Link>
-          </li>
-        </ul>
-      </nav>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/winsize" element={<WindowSizes />} /> 
-          <Route path="/*" element={<PageNotFound/>} />
-          <Route path="/PageCounter" element={<PageCounter/>} />
-        </Routes>
-      </BrowserRouter>
+    <button onClick={handlerVisible}>switch visible</button>
+    {isVisible && <FunkStopWatch/>}
     </>
-  );
+  )
 };
-
-const Home = ()=><section>Home</section>;
-const About = ()=><section>About</section>;
-const Contact = ()=><section>Contact</section>;
-// const PageCounter = ()=><section>CounterSection</section>;
-
 export default App;      
+
+
+
+
+
+// const App = () =>{
+//   return(
+//     <>
+//       <BrowserRouter>
+//       <nav>
+//         <ul>
+//           <li>
+//             <Link to='/'>Home</Link>
+//           </li>
+//           <li>
+//             <Link to='/About'>About</Link>
+//           </li>
+//           <li>
+//             <Link to='/Contact'>Contact</Link>
+//           </li>
+//           <li>
+//             <Link to='/winsize'>WindowSizes</Link>
+//           </li>
+//           <li>
+//             <Link to='/PageCounter'>CounterSection</Link>
+//           </li>
+//         </ul>
+//       </nav>
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route path="/about" element={<About />} />
+//           <Route path="/contact" element={<Contact />} />
+//           <Route path="/winsize" element={<WindowSizes />} /> 
+//           <Route path="/*" element={<PageNotFound/>} />
+//           <Route path="/PageCounter" element={<PageCounter/>} />
+//         </Routes>
+//       </BrowserRouter>
+//     </>
+//   );
+// };
+
+// const Home = ()=><section>Home</section>;
+// const About = ()=><section>About</section>;
+// const Contact = ()=><section>Contact</section>;
+// // const PageCounter = ()=><section>CounterSection</section>;
+
+// export default App;      
 
 
 
