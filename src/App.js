@@ -6,28 +6,29 @@ import React, { useState } from "react";
 // import PageNotFound from './components/page/NotFound';
 // import CalendarSection from './components/calendar/CalendarSection';
 // import PageCounter from './components/page/PageCounter';
-import { BrowserRouter,Routes, Route } from "react-router-dom";
-import HomePages from './components/page/HomePages';
-import { ThemeContext } from './context/index';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePages from "./components/page/HomePages";
+import {UserContext, ThemeContext} from "./context";
+import CONSTANTS from './constants';
+const {THEMES} = CONSTANTS;
 
 const App = () => {
-  const [theme, setTheme] = useState('lite');
-  // const curentTheme = useContext(ThemeContext)
-
-  const handlerTheme = ()=>{
-    setTheme(theme==='lite'?'dark':'lite')
-  };
-  document.body.style.backgroundColor = theme === "lite"?"pink":"blue";
-  document.body.style.color = theme === "lite"?"blue":"pink";
+  const themeStateArr = useState(THEMES.LIGHT);
+  const [user] = useState({ id: 1, name: "Red" });
+ 
+  // document.body.style.backgroundColor = theme === "lite" ? "pink" : "blue";
+  // document.body.style.color = theme === "lite" ? "blue" : "pink"; //один из способов прописать стили
   return (
     <>
-      <ThemeContext.Provider value={theme}>
-        <BrowserRouter>
-        <button onClick={handlerTheme}>switch theme</button>
-          <Routes>
-            <Route path="/" element={<HomePages/>} />
-          </Routes>
-        </BrowserRouter>
+      {" "}
+      <ThemeContext.Provider value={themeStateArr}>
+        <UserContext.Provider value={user}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<HomePages />} />
+            </Routes>
+          </BrowserRouter>
+        </UserContext.Provider>
       </ThemeContext.Provider>
     </>
   );
