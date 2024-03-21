@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePages from "./components/page/HomePages";
 import {UserContext, ThemeContext} from "./context";
 import CONSTANTS from './constants';
+import UsersList from './components/training/UsersList';
 const {THEMES} = CONSTANTS;
 
 const App = () => {
@@ -20,7 +21,8 @@ const App = () => {
   // document.body.style.color = theme === "lite" ? "blue" : "pink"; //один из способов прописать стили
   return (
     <>
-      {" "}
+    <UsersList />
+      {/* {" "}
       <ThemeContext.Provider value={themeStateArr}>
         <UserContext.Provider value={user}>
           <BrowserRouter>
@@ -29,7 +31,7 @@ const App = () => {
             </Routes>
           </BrowserRouter>
         </UserContext.Provider>
-      </ThemeContext.Provider>
+      </ThemeContext.Provider> */}
     </>
   );
 };
